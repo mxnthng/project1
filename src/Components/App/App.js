@@ -10,9 +10,7 @@ import Test from '../Menu/Test'
 function App() {
     return (
       <div>
-        <Menu />
-        <TabArena />
-        <ChatArea />
+        <SignIn />
       </div>
   );
 }
