@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+}
+
+.chatdiv {
+  float: left;
+  width: calc(100%-398px);
+  background: tan;
+}
