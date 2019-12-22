@@ -5,12 +5,13 @@ import TabArena from '../TabArea/TabArena';
 import ChatArea from '../ChatArea/ChatArea';
 import SignIn from '../Signin/Signin';
 import SignUp from '../Signup/Signup';
-import Test from '../Menu/Test'
+import SignUpA from '../Signup/test';
+import SignInA from '../Signin/test';
 
 function App() {
     return (
       <div>
-        <SignIn />
+        <SignUp />
       </div>
   );
 }

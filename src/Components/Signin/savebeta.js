@@ -16,7 +16,7 @@ function Copyright() {
 
 const styles = {
   paper: {
-    'marginTop': '64px',
+    'marginTop': 'theme.spacing(8)',
     'display': 'flex',
     'flexDirection': 'column',
     'alignItems': 'center',
@@ -26,10 +26,10 @@ const styles = {
   },
   form: {
     'width': '100%',
-    'marginTop': '8px',
+    'marginTop': 'theme.spacing(1)',
   },
   submit: {
-    'margin': '32px 0px 24px',
+    'margin': 'theme.spacing(3, 0, 2)',
   },
 };
 
