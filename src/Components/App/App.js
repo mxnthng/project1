@@ -11,7 +11,9 @@ import SignInA from '../Signin/test';
 function App() {
     return (
       <div>
-        <SignUp />
+        <Menu />
+        <TabArena />
+        <ChatArea />
       </div>
   );
 }

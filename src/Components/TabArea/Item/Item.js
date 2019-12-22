@@ -2,23 +2,28 @@ import React, { Component } from 'react';
 import './item.css'
 
 class Item extends Component {
+    constructor(props) {
+        super(props);
+        
+    }
+    
     render() {
         return (
             <div className="item">
                 <div className="item_inside">
                     <div className="avatar_container">
                         <div className="avatar">
-                            avatar
+                            {this.props.itemAvatar}
                         </div>
                     </div>
                     <div className="item_content">
                         <div className="name_container">
                             <div className="item_name">
-                                Ten test chua mapping
+                                {this.props.itemName}
                             </div>
                         </div>
                         <div className="last_mess">
-                            last mess
+                            {this.props.lastMess}
                         </div>
                         <div className="fix"></div>
                     </div>

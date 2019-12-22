@@ -39,7 +39,7 @@ class SignIn extends Component {
   }
   
   handleSubmit = () => {
-    if ((this.username.value == "hust") && (this.password.value == "1")) {
+    if ((this.username.value === "hust") && (this.password.value === "1")) {
       alert("Đăng nhập thành công!");
     } else {
       alert("Sai tên đăng nhập hoặc mật khẩu!");

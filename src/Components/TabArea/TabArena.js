@@ -15,19 +15,53 @@ const styles = {
 };
 
 class TabArena extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            items : [
+                {
+                    itemAvatar: "#",
+                    itemName: "An",
+                    lastMess: "Đi chơi game đê"
+                },
+                {
+                    itemAvatar: "#",
+                    itemName: "Yến",
+                    lastMess: "Đi ngủ cho ấm đê"
+                },
+                {
+                    itemAvatar: "#",
+                    itemName: "Bình",
+                    lastMess: "Đi học đê"
+                },
+                {
+                    itemAvatar: "#",
+                    itemName: "Dương",
+                    lastMess: "Đi đánh bài ăn tiền đê"
+                },
+                {
+                    itemAvatar: "#",
+                    itemName: "Tâm",
+                    lastMess: "Đi code cho xong cái project đê"
+                },
+            ]
+        }
+    }
+
+    showItem = () => {
+        const listItem = this.state.items.map((item, index) => 
+            <Item key={index} itemAvatar={item.avatar} itemName={item.itemName} lastMess={item.lastMess} />
+        );
+        return listItem;
+    }
+    
     render() {
         return (
             <div style={styles.root}>
                 <SearchBox />
                 <div style= {styles.clearfix} ></div>                
-                <Item />
-                <Item />
-                <Item />
-                <Item />
-                <Item />
-                <Item />
-                <Item />
-                <Item />
+                { this.showItem() }
             </div>
         );
     }
