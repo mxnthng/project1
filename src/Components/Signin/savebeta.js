@@ -16,7 +16,7 @@ function Copyright() {
 
 const styles = {
   paper: {
-    'marginTop': 'theme.spacing(8)',
+    'marginTop': '64px',
     'display': 'flex',
     'flexDirection': 'column',
     'alignItems': 'center',
@@ -26,21 +26,26 @@ const styles = {
   },
   form: {
     'width': '100%',
-    'marginTop': 'theme.spacing(1)',
+    'marginTop': '8px',
   },
   submit: {
-    'margin': 'theme.spacing(3, 0, 2)',
+    'margin': '32px 0px 24px',
   },
 };
 
 class SignIn extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isUser : false,
+      direct : ""
+    }
   }
-  
+
   handleSubmit = () => {
-    if ((this.username.value == "hust") && (this.password.value == "1")) {
+    if ((this.username.value === "hust") && (this.password.value === "1")) {
       alert("Đăng nhập thành công!");
+      this.setState({ direct: "/home" });
     } else {
       alert("Sai tên đăng nhập hoặc mật khẩu!");
     }
@@ -57,7 +62,7 @@ class SignIn extends Component {
           </Typography>
           <form style={styles.form} noValidate>
             <TextField
-              inputRef={ (username) => {this.username = username} }
+              inputRef={(username) => { this.username = username }}
               variant="outlined"
               margin="normal"
               required
@@ -69,7 +74,7 @@ class SignIn extends Component {
               autoFocus
             />
             <TextField
-              inputRef={ (password) => {this.password = password} }
+              inputRef={(password) => { this.password = password }}
               variant="outlined"
               margin="normal"
               required
@@ -86,6 +91,7 @@ class SignIn extends Component {
             />
             <Button
               onClick={this.handleSubmit}
+              href={this.state.direct}
               type="submit"
               fullWidth
               variant="contained"
@@ -101,7 +107,7 @@ class SignIn extends Component {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link href="/signup" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

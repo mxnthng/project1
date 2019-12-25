@@ -1,21 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+
 import './App.css';
-import Menu from '../Menu/Menu';
-import TabArena from '../TabArea/TabArena';
-import ChatArea from '../ChatArea/ChatArea';
+import routes from '../../Routes/routes';
+
 import SignIn from '../Signin/Signin';
 import SignUp from '../Signup/Signup';
-import SignUpA from '../Signup/test';
-import SignInA from '../Signin/test';
+import MainMenu from '../MainMenu/MainMenu';
+import TabArea from '../TabArea/TabArea';
+import ChatArea from '../ChatArea/ChatArea';
 
-function App() {
-    return (
-      <div>
-        <Menu />
-        <TabArena />
-        <ChatArea />
-      </div>
-  );
+class App extends Component {
+   render() {
+      return (
+         <Router>
+            <div>
+               <Switch>
+                  <Route path="/" exact component={SignIn} />
+                  <Route path="/signup" exact component={SignUp} />
+                  <Route path="/home" render={props =>
+                     <div>
+                        <MainMenu />
+                        <TabArea />
+                        <ChatArea />
+                     </div>
+                  } />
+               </Switch>
+            </div>
+         </Router>
+      );
+   }
 }
 
 export default App;

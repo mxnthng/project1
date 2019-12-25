@@ -79,7 +79,7 @@ class SignIn extends Component {
               id="email"
               label="Email"
               name="email"
-              autoComplete="email"
+              autoComplete="username"
               autoFocus
             />
             <TextField
@@ -100,6 +100,7 @@ class SignIn extends Component {
             />
             <Button
               onClick={this.handleSubmit}
+              href={this.state.direct}
               type="submit"
               fullWidth
               variant="contained"
