@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { ChatOutlined } from '@material-ui/icons';
+import '../TopMenu.css';
 
 const styles = {
     root: {
         'display': 'flex',
         'justifyContent': 'center',
+        'height': '60px',
+        'width': '66px',
       },
       messenger: {
         'width': '70%',
@@ -16,7 +19,7 @@ const styles = {
 class MessengerMenu extends Component {
   render() {
     return (
-      <div style={styles.root}>
+      <div style={styles.root} className="clickable">
           <ChatOutlined style={styles.messenger} />
       </div>
     );

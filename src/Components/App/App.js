@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom';
 
 import './App.css';
-import routes from '../../Routes/routes';
 
 import SignIn from '../Signin/Signin';
 import SignUp from '../Signup/Signup';
@@ -16,7 +15,8 @@ class App extends Component {
          <Router>
             <div>
                <Switch>
-                  <Route path="/" exact component={SignIn} />
+                  <Redirect exact from="/" to="/signin" />
+                  <Route path="/signin" exact component={SignIn} />
                   <Route path="/signup" exact component={SignUp} />
                   <Route path="/home" render={props =>
                      <div>

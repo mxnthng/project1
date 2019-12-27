@@ -45,20 +45,18 @@ class SignIn extends Component {
   }
 
   handleSubmit = () => {
-    axios ({
-      method: 'POST',
-      url: 'http://localhost:3000/user/login',
-      data: {
-        email: this.refemail,
-        password: this.refpassword
-      }
-    }).then(res => {
-      console.log(res);
-    }).catch(err =>
-      console.log(err)
-    )
+    if ((this.username.value === "hust") && (this.password.value === "1")) {
+      alert("Đăng nhập thành công!");
+      this.setState({ direct: "/home" });
+    } else {
+      alert("Sai tên đăng nhập hoặc mật khẩu!");
+    }
+    
   }
 
+  redirectForgot = () => {
+    alert("Redirect");
+  }
   
   render() {
     return (
@@ -115,7 +113,7 @@ class SignIn extends Component {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/signup" variant="body2">
+                <Link href="/signup" variant="body2" onClick={this.redirectForgot}>
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>

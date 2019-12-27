@@ -7,3 +7,7 @@
   width: calc(100%-398px);
   background: tan;
 }
+
+.root {
+  background-color: white;
+}

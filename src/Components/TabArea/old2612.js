@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import SearchBox from './SearchBox/SearchBox';
 import ItemMess from './Item/ItemMess';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import TabAreaMess from './TabAreaMess';
-import TabAreaFriend from './TabAreaFriend';
 
 const styles = {
     root: {
         'float': 'left',
         'width': '332px',
-        'height': '100vh', //height cũ trong file old
-        'backgroundColor': 'white',
+        'height': 'calc(100vh-20px)',
     },
     clearfix: {
         'display': 'inline-block',
@@ -53,7 +49,7 @@ class TabArea extends Component {
         }
     }
 
-    showItemMess = () => {
+    showItem = () => {
         const listItem = this.state.items.map((item, index) => 
             <ItemMess key={index} itemAvatar={item.avatar} itemName={item.itemName} lastMess={item.lastMess} />
         );
@@ -62,16 +58,11 @@ class TabArea extends Component {
     
     render() {
         return (
-            <Router>
-                <div style={styles.root}>
-                    <SearchBox />
-                    <Switch>
-                        <Route path="/home" exact> Home nè </Route>
-                        <Route path="/home/messenger" component={TabAreaMess} />
-                        <Route path="/home/friend" component={TabAreaFriend} />
-                    </Switch>
-                </div>
-            </Router>
+            <div style={styles.root}>
+                <SearchBox />
+                <div style= {styles.clearfix} ></div>                
+                { this.showItem() }
+            </div>
         );
     }
 }

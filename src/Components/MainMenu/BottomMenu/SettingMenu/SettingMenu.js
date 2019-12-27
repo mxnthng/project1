@@ -5,6 +5,7 @@ const styles = {
   root: {
     'display': 'flex',
     'justifyContent': 'center',
+    'cursor': 'pointer',
   },
   setting: {
     'display': 'block',

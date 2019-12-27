@@ -45,18 +45,13 @@ class SignIn extends Component {
   }
 
   handleSubmit = () => {
-    axios ({
-      method: 'POST',
-      url: 'http://localhost:3000/user/login',
-      data: {
-        email: this.refemail,
-        password: this.refpassword
-      }
-    }).then(res => {
-      console.log(res);
-    }).catch(err =>
-      console.log(err)
-    )
+    if ((this.username.value === "hust") && (this.password.value === "1")) {
+      alert("Đăng nhập thành công!");
+      this.setState({ direct: "/home" });
+    } else {
+      alert("Sai tên đăng nhập hoặc mật khẩu!");
+    }
+    
   }
 
   
@@ -79,7 +74,7 @@ class SignIn extends Component {
               id="email"
               label="Email"
               name="email"
-              autoComplete="username"
+              autoComplete="email"
               autoFocus
             />
             <TextField
@@ -100,7 +95,6 @@ class SignIn extends Component {
             />
             <Button
               onClick={this.handleSubmit}
-              href={this.state.direct}
               type="submit"
               fullWidth
               variant="contained"

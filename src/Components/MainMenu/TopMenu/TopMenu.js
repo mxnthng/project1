@@ -1,39 +1,63 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import UserAvatar from './UserAvatar/UserAvatar';
-import MessengerMenu from './MessengerMenu/MessengerMenu';
-import FriendMenu from './FriendMenu/FriendMenu';
+import React, { Component } from 'react';
+import { Link, BrowserRouter as Router } from 'react-router-dom';
+import { PeopleAltOutlined, ChatOutlined } from '@material-ui/icons';
+import { Avatar, Button } from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
+const styles = {
     root: {
-      display: 'inline-block',
+      'display': 'inline-block',
     },
     clearfix: {
-        display: 'block',
-        height : 20,
-    }
-}));
+        'display': 'block',
+        'height' : '20px',
+    },
+    childrenmenu: {
+      'display': 'flex',
+      'justifyContent': 'center',
+      'height': '66px',
+      'width': '66px',
+    },
+    avatar: {
+      'width': '80%',
+      'height': 'auto',
+    },
+    icon: {
+      'width': '80%',
+      'height': 'auto',
+      'color': 'white',
+    },
+};
 
-export default function TopMenu() {
-  const classes = useStyles();
+class TopMenu extends Component {
 
-  return (
-    <div className={classes.root}>
-        <div className={classes.clearfix} />
-        <div className={classes.clearfix} />
 
-        <UserAvatar />
+  render() {
+    return (
+      <Router>
+      <div style={styles.root}>
+          <div style={styles.clearfix} />
 
-        <div className={classes.clearfix} />
-        <div className={classes.clearfix} />
-        <div className={classes.clearfix} />
+          <Link to="/home/user" style={styles.childrenmenu}>
+            <Avatar alt="Avatar" src="#" style={styles.avatar} />
+          </Link>
 
-        <MessengerMenu />
+          <div style={styles.clearfix} />
 
-        <div className={classes.clearfix} />
+          <Button style={styles.childrenmenu}>
+            <Link to="/home/messenger">
+              <ChatOutlined style={styles.icon} />
+            </Link>
+          </Button>
 
-        <FriendMenu />
-
-    </div>
-  );
+          <Button style={styles.childrenmenu}>
+            <Link to="/home/friend">
+              <PeopleAltOutlined style={styles.icon} />
+            </Link>
+          </Button>
+      </div>
+      </Router>
+    );
+  }
 }
+
+export default TopMenu;

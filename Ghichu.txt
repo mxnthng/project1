@@ -3,6 +3,7 @@ Right click / Git Bash here
 npm install
 
 npm install react-router-dom
+npm install reactjs-popup
 npm install @material-ui/core
 npm install @material-ui/icons
 npm i react-chat-window
