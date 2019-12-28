@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Input from './Chat/Input';
 import ChatHeader from './Chat/ChatHeader';
 import MessageList from './Chat/MessageList';
-import './ChatArea.css';
 
 const styles = {
     root: {
@@ -14,10 +13,10 @@ const styles = {
     },
 };
 
-class TabArena extends Component {
+class ChatArea extends Component {
     render() {
         return (
-            <div className="chat_window" style={styles.root}>
+            <div className="" style={styles.root}>
                 <ChatHeader />
                 <Input />
             </div>
@@ -25,4 +24,4 @@ class TabArena extends Component {
     }
 }
 
-export default TabArena;
+export default ChatArea;

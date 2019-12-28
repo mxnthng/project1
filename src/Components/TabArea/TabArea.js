@@ -26,28 +26,8 @@ class TabArea extends Component {
             items : [
                 {
                     itemAvatar: "#",
-                    itemName: "An",
-                    lastMess: "Đi chơi game đê"
-                },
-                {
-                    itemAvatar: "#",
-                    itemName: "Yến",
-                    lastMess: "Đi ngủ cho ấm đê"
-                },
-                {
-                    itemAvatar: "#",
-                    itemName: "Bình",
-                    lastMess: "Đi học đê"
-                },
-                {
-                    itemAvatar: "#",
-                    itemName: "Dương",
-                    lastMess: "Đi đánh bài ăn tiền đê"
-                },
-                {
-                    itemAvatar: "#",
-                    itemName: "Tâm",
-                    lastMess: "Đi code cho xong cái project đê"
+                    itemName: "Tên",
+                    lastMess: "Tin nhắn"
                 },
             ]
         }
@@ -62,16 +42,10 @@ class TabArea extends Component {
     
     render() {
         return (
-            <Router>
-                <div style={styles.root}>
-                    <SearchBox />
-                    <Switch>
-                        <Route path="/home" exact> Home nè </Route>
-                        <Route path="/home/messenger" component={TabAreaMess} />
-                        <Route path="/home/friend" component={TabAreaFriend} />
-                    </Switch>
-                </div>
-            </Router>
+            <div style={styles.root}>
+                <SearchBox />
+                {this.props.children}
+            </div>
         );
     }
 }

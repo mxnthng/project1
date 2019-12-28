@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
 import SearchBox from './SearchBox/SearchBox';
 import ItemMess from './Item/ItemMess';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import TabAreaMess from './TabAreaMess';
+import TabAreaFriend from './TabAreaFriend';
 
 const styles = {
     root: {
         'float': 'left',
         'width': '332px',
-        'height': 'calc(100vh-20px)',
+        'height': '100vh', //height cũ trong file old
+        'backgroundColor': 'white',
     },
     clearfix: {
         'display': 'inline-block',
@@ -22,34 +26,14 @@ class TabArea extends Component {
             items : [
                 {
                     itemAvatar: "#",
-                    itemName: "An",
-                    lastMess: "Đi chơi game đê"
-                },
-                {
-                    itemAvatar: "#",
-                    itemName: "Yến",
-                    lastMess: "Đi ngủ cho ấm đê"
-                },
-                {
-                    itemAvatar: "#",
-                    itemName: "Bình",
-                    lastMess: "Đi học đê"
-                },
-                {
-                    itemAvatar: "#",
-                    itemName: "Dương",
-                    lastMess: "Đi đánh bài ăn tiền đê"
-                },
-                {
-                    itemAvatar: "#",
-                    itemName: "Tâm",
-                    lastMess: "Đi code cho xong cái project đê"
+                    itemName: "Tên",
+                    lastMess: "Tin nhắn"
                 },
             ]
         }
     }
 
-    showItem = () => {
+    showItemMess = () => {
         const listItem = this.state.items.map((item, index) => 
             <ItemMess key={index} itemAvatar={item.avatar} itemName={item.itemName} lastMess={item.lastMess} />
         );
@@ -58,11 +42,15 @@ class TabArea extends Component {
     
     render() {
         return (
-            <div style={styles.root}>
-                <SearchBox />
-                <div style= {styles.clearfix} ></div>                
-                { this.showItem() }
-            </div>
+            <Router>
+                <div style={styles.root}>
+                    <SearchBox />
+                    <Switch>
+                        <Route path="/message" component={TabAreaMess} />
+                        <Route path="/friend" component={TabAreaFriend} />
+                    </Switch>
+                </div>
+            </Router>
         );
     }
 }

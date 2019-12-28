@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Chat.css';
-import Friend from '../../Friend/Friend';
+import Friend from '../../User/User';
 
 class ChatHeader extends Component {
     constructor(props) {

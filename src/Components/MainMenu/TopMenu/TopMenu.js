@@ -37,20 +37,20 @@ class TopMenu extends Component {
       <div style={styles.root}>
           <div style={styles.clearfix} />
 
-          <Link to="/home/user" style={styles.childrenmenu}>
+          <Link to="/user" style={styles.childrenmenu}>
             <Avatar alt="Avatar" src="#" style={styles.avatar} />
           </Link>
 
           <div style={styles.clearfix} />
 
           <Button style={styles.childrenmenu}>
-            <Link to="/home/messenger">
+            <Link to="/message">
               <ChatOutlined style={styles.icon} />
             </Link>
           </Button>
 
           <Button style={styles.childrenmenu}>
-            <Link to="/home/friend">
+            <Link to="/friend">
               <PeopleAltOutlined style={styles.icon} />
             </Link>
           </Button>

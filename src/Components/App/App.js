@@ -5,28 +5,24 @@ import './App.css';
 
 import SignIn from '../Signin/Signin';
 import SignUp from '../Signup/Signup';
+import FriendLayout from '../Layout/FriendLayout';
+import ChatLayout from '../Layout/ChatLayout';
 import MainMenu from '../MainMenu/MainMenu';
-import TabArea from '../TabArea/TabArea';
 import ChatArea from '../ChatArea/ChatArea';
+import TabArea from '../TabArea/TabArea';
 
 class App extends Component {
    render() {
       return (
          <Router>
-            <div>
                <Switch>
                   <Redirect exact from="/" to="/signin" />
-                  <Route path="/signin" exact component={SignIn} />
-                  <Route path="/signup" exact component={SignUp} />
-                  <Route path="/home" render={props =>
-                     <div>
-                        <MainMenu />
-                        <TabArea />
-                        <ChatArea />
-                     </div>
-                  } />
+                  <Route path="/signin" component={SignIn} exact/>
+                  <Route path="/signup" component={SignUp} exact/>
+                  <Route path="/friend" component={FriendLayout} exact/>
+                  <Route path="/message" component={ChatLayout} exact/>
+                  <Route render={ () => <h1 style={{'textAlign': 'center'}}>Không tìm thấy trang</h1> } /> 
                </Switch>
-            </div>
          </Router>
       );
    }

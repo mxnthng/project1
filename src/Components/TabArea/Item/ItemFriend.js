@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './item.css'
-import Friend from '../../Friend/Friend';
+import CallPopup from '../../User/CallPopup';
 
 class Item extends Component {
     constructor(){
@@ -12,7 +12,7 @@ class Item extends Component {
     }
     render() {
         return (
-            <div className="item" onClick={this.callModal}>
+            <div className="item" onClick={<CallPopup />}>
                 <div className="item_inside">
                     <div className="avatar_container">
                         <div className="avatar">
@@ -27,7 +27,6 @@ class Item extends Component {
                         </div>
                     </div>
                 </div>
-                <Friend isOpen={this.state.isModalOpen} />
             </div>
         );
     }

@@ -40,25 +40,32 @@ class SignIn extends Component {
     super(props);
     this.state = {
       isUser: false
-
     }
   }
 
-  handleSubmit = () => {
-    if ((this.username.value === "hust") && (this.password.value === "1")) {
-      alert("Đăng nhập thành công!");
-      this.setState({ direct: "/home" });
-    } else {
-      alert("Sai tên đăng nhập hoặc mật khẩu!");
+  handleSubmit = async () => {
+    axios({
+      method: 'POST',
+      url: 'http://localhost:3000/login',
+      data: {
+        email: this.refemail.value,
+        password: this.refpassword.value,
+      }
+    }).then(res => {
+        console.log(res);
+        alert("Đăng nhập thành công!");
+        this.setState({ isUser: true });
+        console.log(this.state.isUser);
+    }).catch(err => {
+        alert(err);
+    });
+  }
+
+  render() {
+    if (this.state.isUser) {
+      return <Redirect to="/message" />;
     }
     
-  }
-
-  redirectForgot = () => {
-    alert("Redirect");
-  }
-  
-  render() {
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -92,13 +99,9 @@ class SignIn extends Component {
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
             <Button
               onClick={this.handleSubmit}
-              type="submit"
+              type="button"
               fullWidth
               variant="contained"
               color="primary"
@@ -113,7 +116,7 @@ class SignIn extends Component {
                 </Link>
               </Grid>
               <Grid item>
-                <Link href="/signup" variant="body2" onClick={this.redirectForgot}>
+                <Link href="/signup" variant="body2">
                   {"Don't have an account? Sign Up"}
                 </Link>
               </Grid>
