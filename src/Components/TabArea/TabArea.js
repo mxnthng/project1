@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import SearchBox from './SearchBox/SearchBox';
 import ItemMess from './Item/ItemMess';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import TabAreaMess from './TabAreaMess';
-import TabAreaFriend from './TabAreaFriend';
 
 const styles = {
     root: {

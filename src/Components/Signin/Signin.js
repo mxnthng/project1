@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Button, CssBaseline, TextField, FormControlLabel, Checkbox, Link, Grid, Box, Container, Typography } from '@material-ui/core';
-import { Redirect } from 'react-router-dom';
 import axios from 'axios';
+import { Redirect, NavLink } from 'react-router-dom';
+
+import { Button, CssBaseline, TextField, Link, Grid, Box, Container, Typography } from '@material-ui/core';
 
 function Copyright() {
   return (
@@ -43,7 +44,8 @@ class SignIn extends Component {
     }
   }
 
-  handleSubmit = async () => {
+  handleSubmit = async (e) => {
+    e.preventDefault();
     axios({
       method: 'POST',
       url: 'http://localhost:3000/login',
@@ -72,7 +74,7 @@ class SignIn extends Component {
         <div style={styles.paper}>
           <div style={styles.clearfix}> </div>
           <Typography component="h1" variant="h4">
-            Sign in
+            Đăng nhập
           </Typography>
           <form style={styles.form} noValidate>
             <TextField
@@ -94,7 +96,7 @@ class SignIn extends Component {
               required
               fullWidth
               name="password"
-              label="Password"
+              label="Mật khẩu"
               type="password"
               id="password"
               autoComplete="current-password"
@@ -107,18 +109,14 @@ class SignIn extends Component {
               color="primary"
               style={styles.submit}
             >
-              Sign In
+              Đăng nhập
             </Button>
             <Grid container>
-              <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="/signup" variant="body2">
-                  {"Don't have an account? Sign Up"}
-                </Link>
+              <Grid item xs />
+              <Grid item center>
+                <NavLink to="/signup" style={{'fontSize': '16px', 'color': 'blue'}}>
+                  Đăng ký tài khoản
+                </NavLink>
               </Grid>
             </Grid>
           </form>

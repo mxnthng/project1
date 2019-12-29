@@ -5,7 +5,7 @@ class CallPopup extends Component {
     render() {
         return (
             <div>
-                <User />
+                <User isOpen={true} />
             </div>
         );
     }

@@ -1,1 +1,0 @@
-// function gọi Popup Friend

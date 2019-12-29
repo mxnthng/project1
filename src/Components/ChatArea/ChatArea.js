@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ChatAreaFriend from './ChatAreaFriend';
 import ChatAreaMess from './ChatAreaMess';
 
 const styles = {

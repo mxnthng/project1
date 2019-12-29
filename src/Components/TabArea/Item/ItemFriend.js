@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 import './item.css'
 import CallPopup from '../../User/CallPopup';
+import User from '../../User/User';
 
 class Item extends Component {
     constructor(){
         super();
-        this.state = { isModalOpen: false };
+        this.state = { isOpen: false };
     }
-    callModal = () => {
-        this.setState({ isModalOpen: true });
+    
+    callModal = (e) => {
+        e.preventDefault();
+        this.setState({ isOpen: true });
     }
+    
     render() {
         return (
-            <div className="item" onClick={<CallPopup />}>
+            <div className="item" onClick={this.callModal}>
                 <div className="item_inside">
                     <div className="avatar_container">
                         <div className="avatar">
@@ -27,6 +31,7 @@ class Item extends Component {
                         </div>
                     </div>
                 </div>
+                <User isOpen={this.state.isOpen} />
             </div>
         );
     }

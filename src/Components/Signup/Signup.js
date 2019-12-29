@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import { Redirect, NavLink } from 'react-router-dom';
+
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
@@ -45,44 +48,58 @@ const styles = {
 }
 
 class SignUp extends Component {
-  handleSubmit = () => {
-    alert("Name: "+ this.firstname.value + " " + this.lastname.value + "\nEmail: "+ this.email.value + "\nPass: " + this.password.value)
+  constructor(props) {
+    super(props);
+    this.state = {
+      signed: false,
+    }
+  }
+  
+
+  handleSubmit = async (e) => {
+    e.preventDefault();
+    axios({
+      method: 'POST',
+      url: 'http://localhost:3000/register',
+      data: {
+        userName: this.username.value,
+        password: this.password.value,
+        email: this.email.value,
+      }
+    }).then(res => {
+        console.log(res);
+        alert("Đăng ký thành công! Hệ thống sẽ chuyển đến trang đăng nhập");
+        this.setState({ signed: true });
+    }).catch(err => {
+        alert(err);
+    });
   }
 
   render() {
+    if (this.state.signed) {
+      return <Redirect to="/" />;
+    }
+
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div style={styles.paper}>
           <div style={styles.clearfix}></div>
           <Typography component="h1" variant="h4">
-            Sign up
+            Đăng ký
           </Typography>
           <form style={styles.form} noValidate>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={12}>
                 <TextField
-                  inputRef={ (firstname) => {this.firstname = firstname} }
-                  autoComplete="fname"
-                  name="firstName"
+                  inputRef={ (username) => {this.username = username} }
                   variant="outlined"
                   required
                   fullWidth
-                  id="firstName"
-                  label="First Name"
-                  autoFocus
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  inputRef={ (lastname) => {this.lastname = lastname} }
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
-                  autoComplete="lname"
+                  id="username"
+                  label="Tên người dùng"
+                  name="username"
+                  autoComplete="username"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -92,7 +109,7 @@ class SignUp extends Component {
                   required
                   fullWidth
                   id="email"
-                  label="Email Address"
+                  label="Email"
                   name="email"
                   autoComplete="email"
                 />
@@ -104,7 +121,7 @@ class SignUp extends Component {
                   required
                   fullWidth
                   name="password"
-                  label="Password"
+                  label="Mật khẩu"
                   type="password"
                   id="password"
                   autoComplete="current-password"
@@ -119,13 +136,13 @@ class SignUp extends Component {
               color="primary"
               style={styles.submit}
             >
-              Sign Up
+              Đăng ký
             </Button>
             <Grid container justify="flex-end">
               <Grid item>
-                <Link href="/" variant="body2">
-                  Already have an account? Sign in
-                </Link>
+                <NavLink to="/" style={{'fontSize': '16px', 'color': 'blue'}}>
+                  Chuyển đến trang đăng nhập
+                </NavLink>
               </Grid>
             </Grid>
           </form>

@@ -13,7 +13,7 @@ class User extends Component {
     render() {
         return (
             <div>
-                <Popup closeOnDocumentClick modal contentStyle={styles.popups}>
+                <Popup open={this.props.isOpen} closeOnDocumentClick modal contentStyle={styles.popups}>
                     {close => (
                         <div className="modal">
                             <a className="close" onClick={close}> &times; </a>
