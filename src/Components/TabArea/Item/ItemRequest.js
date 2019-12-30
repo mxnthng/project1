@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './item.css'
 
-import User from '../../User/User';
+import ReqUser from '../../User/ReqUser';
 
-class ItemFriend extends Component {
+class ItemRequest extends Component {
     constructor(){
         super();
         this.state = { 
@@ -33,10 +33,10 @@ class ItemFriend extends Component {
                         </div>
                     </div>
                 </div>
-                <User isOpen={this.state.isOpen} avatar={this.props.avatar} userName={this.props.userName} email={this.props.email}  />
+                <ReqUser isOpen={this.state.isOpen} avatar={this.props.avatar} userName={this.props.userName} email={this.props.email}  />
             </div>
         );
     }
 }
 
-export default ItemFriend;
+export default ItemRequest;

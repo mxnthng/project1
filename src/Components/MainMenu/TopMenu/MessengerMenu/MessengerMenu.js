@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { ChatOutlined } from '@material-ui/icons';
-import '../TopMenu.css';
+import { Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const styles = {
-    root: {
+  childrenmenu: {
         'display': 'flex',
         'justifyContent': 'center',
         'height': '60px',
         'width': '66px',
       },
-      messenger: {
-        'width': '70%',
+      icon: {
+        'width': '80%',
         'height': 'auto',
         'color': 'white',
       },
@@ -19,9 +20,11 @@ const styles = {
 class MessengerMenu extends Component {
   render() {
     return (
-      <div style={styles.root} className="clickable">
-          <ChatOutlined style={styles.messenger} />
-      </div>
+      <Button style={styles.childrenmenu}>
+        <Link to="/message">
+          <ChatOutlined style={styles.icon} />
+        </Link>
+      </Button>
     );
   }
 };

@@ -43,3 +43,17 @@ Popup {
 .modal > .fix {
   height: 10px;
 }
+.modal > .email {
+  font-family: "Segoe UI", "SegoeuiPc", "Roboto", Arial, sans-serif;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 10px;
+}
+.modal > .accept {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.modal > .accept > .acceptbutton {
+  border: 1px solid #cfcece;
+}

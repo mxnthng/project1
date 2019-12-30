@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
 import './Chat.css';
-import Friend from '../../User/User';
+import User from '../../User/User';
+import UserInfo from '../../UserInfo/UserInfo';
+
+let Info = JSON.parse(localStorage.getItem('info'));
 
 class ChatHeader extends Component {
     constructor(props) {
         super(props);
         this.state = {
             name: "User Name",
-            isModalOpen: false,
+            isOpen: false,
         }
     }
     callModal = () => {
-        this.setState({ isModalOpen: true });
+        this.setState({ isOpen: true });
     }
     render() {
         return (
             <div className="chat_header">
                 <div className="user_name" onClick={this.callModal}>
-                    {this.state.name}
+                    {Info.userName}
                 </div>
-                <Friend isOpen={this.state.isModalOpen} /> 
+                <User isOpen={this.state.isOpen} userName={Info.userName} avatar={Info.avatar} email={Info.email} />
+                <UserInfo />
             </div>
         );
     }

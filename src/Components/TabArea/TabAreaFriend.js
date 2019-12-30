@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import ItemFriend from './Item/ItemFriend';
+import ListFriend from './Item/ListFriend';
+import ListRequest from './Item/ListRequest';
 
 const styles = {
     folder: {
@@ -18,11 +20,10 @@ class TabAreaFriend extends Component {
         return (
             <div>
                 <div style={styles.folder}>Danh sách kết bạn</div>
-                <ItemFriend itemAvatar="#" itemName="Bạn bè 1" />
-                <ItemFriend itemAvatar="#" itemName="Bạn bè 2" />
+                <ListRequest />
                 <div style={styles.fix}></div>
                 <div style={styles.folder}>Danh sách bạn bè</div>
-                <ItemFriend itemAvatar="#" itemName="Bạn bè 1" />
+                <ListFriend />
             </div>
         );
     }

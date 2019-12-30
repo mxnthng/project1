@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { PeopleAltOutlined } from '@material-ui/icons';
+import { Button } from '@material-ui/core';
+import { Link } from 'react-router-dom';
 
 const styles = {
-  root: {
+  childrenmenu: {
     'display': 'flex',
     'justifyContent': 'center',
   },
-  friend: {
-    'width': '70%',
+  icon: {
+    'width': '80%',
     'height': 'auto',
     'color': 'white',
   }, 
@@ -16,9 +18,11 @@ const styles = {
 class FriendMenu extends Component {
   render() {
     return (
-      <div style={styles.root}>
-        <PeopleAltOutlined style={styles.friend} />
-      </div>
+      <Button style={styles.childrenmenu}>
+        <Link to="/friend">
+          <PeopleAltOutlined style={styles.icon} />
+        </Link>
+      </Button>
     );
   }
 };

@@ -1,23 +1,43 @@
 import React, { Component } from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import { AccountCircle } from '@material-ui/icons';
+import User from '../../../User/User';
+import UserInfo from '../../../UserInfo/UserInfo';
+
+// let Info = JSON.parse(sessionStorage.getItem('info'));
+let Info = JSON.parse(localStorage.getItem('info'));
 
 const styles = {
   root: {
     'display': 'flex',
     'justifyContent': 'center',
+    'cursor': 'pointer',
   },
   avatar: {
-    'width': '70%',
+    'width': '80%',
     'height': 'auto',
   },
 };
 
 class UserAvatar extends Component {
+  constructor(){
+    super();
+    this.state = { 
+      isOpen: false, 
+    };
+  }
+
+  callModal = (e) => {
+      e.preventDefault();
+      this.setState({ isOpen: true });
+      // console.log("Info: " + Info);
+      console.log(Info.userName + " " + Info.avatar + " " + Info.email)
+  }
+
   render() {
     return (
-      <div style={styles.root}>
-        <Avatar alt="Avatar" src="#" style={styles.avatar} />
+      <div style={styles.root} onClick={this.callModal}>
+        <img alt="Avatar" src="#" style={styles.avatar} />
+        <User isOpen={this.state.isOpen} userName={Info.userName} avatar={Info.avatar} email={Info.email} />
+        <UserInfo />
       </div>
     );
   }

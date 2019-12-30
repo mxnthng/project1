@@ -57,7 +57,9 @@ class SignIn extends Component {
         console.log(res);
         alert("Đăng nhập thành công!");
         this.setState({ isUser: true });
-        console.log(this.state.isUser);
+        // console.log(this.state.isUser);
+        let token = res.data;
+        localStorage.setItem("token", token);
     }).catch(err => {
         alert(err);
     });
@@ -67,6 +69,8 @@ class SignIn extends Component {
     if (this.state.isUser) {
       return <Redirect to="/message" />;
     }
+
+    localStorage.removeItem('token');
     
     return (
       <Container component="main" maxWidth="xs">

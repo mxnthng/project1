@@ -7,7 +7,7 @@ import SignIn from '../Signin/Signin';
 import SignUp from '../Signup/Signup';
 import FriendLayout from '../Layout/FriendLayout';
 import ChatLayout from '../Layout/ChatLayout';
-import User from '../User/User';
+import ChangeInfo from '../UserInfo/ChangeInfo';
 
 class App extends Component {
    render() {
@@ -18,7 +18,8 @@ class App extends Component {
                   <Route path="/signin" component={SignIn} exact/>
                   <Route path="/signup" component={SignUp} exact/>
                   <Route path="/friend" component={FriendLayout} exact/>
-                  <Route path="/message" component={ChatLayout} exact/>\
+                  <Route path="/message" component={ChatLayout} exact/>
+                  <Route path="/userinfo" component={ChangeInfo} exact/>
                   <Route render={ () => <h1 style={{'textAlign': 'center'}}>Không tìm thấy trang</h1> } />
                </Switch>
          </Router>
