@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-const TOKEN = localStorage.getItem('token');
-
 export default class UserInfo extends Component {
     componentDidMount() {
+        const TOKEN = localStorage.getItem('token');
+
+        console.log("token" + TOKEN);
         axios({
             method: 'get',
             url: 'http://localhost:3000/user/profile',
@@ -12,13 +13,13 @@ export default class UserInfo extends Component {
                 'user-token': TOKEN
             }
         }).then(res => {
+            // console.log("ok");
             // console.log(res.data);
-            localStorage.removeItem('info');
+            // localStorage.removeItem('info');
             localStorage.setItem("info", JSON.stringify(res.data));
-            
         }).catch(err => {
+            // console.log("not ok");
             // console.log(TOKEN);
-            alert("Có lỗi xảy ra, vui lòng refresh trang");
             console.log(err);
         });
     }

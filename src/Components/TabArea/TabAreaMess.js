@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ItemMess from './Item/ItemMess';
+import ListMess from './Item/ListMess';
 
 const styles = {
     folder: {
@@ -15,7 +15,7 @@ class TabAreaMess extends Component {
         return (
             <div>
                 <div style={styles.folder}>Tin nhắn</div>
-                <ItemMess itemAvatar="#" itemName="Tin nhắn nè" lastMess="alo 123" /> 
+                <ListMess />
             </div>
         );
     }

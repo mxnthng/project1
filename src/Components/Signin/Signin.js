@@ -56,22 +56,40 @@ class SignIn extends Component {
     }).then(res => {
         console.log(res);
         alert("Đăng nhập thành công!");
-        this.setState({ isUser: true });
-        // console.log(this.state.isUser);
         let token = res.data;
+        console.log(token);
         localStorage.setItem("token", token);
+        this.setState({ isUser: true });
+        // this.props.history.push('/message');
+        // this.redirectLogin();
     }).catch(err => {
-        alert(err);
+        alert("Sai tên đăng nhập hoặc mật khẩu!");
     });
   }
+  
+  // redirectLogin = () => {
+  //   console.log("ok");
+  //   if (this.state.isUser) {
+  //     return <Redirect to="/message" />;
+  //   }
+  // }
 
   render() {
+    // if (!this.state.isUser) {
+    //   localStorage.removeItem('token');
+    //   localStorage.removeItem('info');
+    // } else {
+    //   return <Redirect to="/redirect" />;
+    // }
+
     if (this.state.isUser) {
-      return <Redirect to="/message" />;
+      return <Redirect to="/redirect" />;
     }
 
     localStorage.removeItem('token');
-    
+    localStorage.removeItem('info');
+    // localStorage.clear();
+
     return (
       <Container component="main" maxWidth="xs">
         <CssBaseline />

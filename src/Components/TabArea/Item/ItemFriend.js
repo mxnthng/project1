@@ -22,7 +22,7 @@ class ItemFriend extends Component {
                 <div className="item_inside">
                     <div className="avatar_container">
                         <div className="avatar">
-                            {this.props.avatar}
+                            <img alt="avatar" className="avatar" src={this.props.avatar} />
                         </div>
                     </div>
                     <div className="item_content_friend">

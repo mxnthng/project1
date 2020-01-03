@@ -29,10 +29,16 @@ Popup {
   border: 1px solid #cfcece;
 }
 .modal > .avatar {
-  border-radius: 100%;
+  border-radius: 50%;
   height: 100px;
   width: 100px;
   margin: 0 auto;
+}
+.modal > .avatar > .img {
+  object-fit: cover;
+  border-radius:50%;
+  width: 100px;
+  height: 100px;
 }
 .modal > .name {
   font-family: "Segoe UI", "SegoeuiPc", "Roboto", Arial, sans-serif;

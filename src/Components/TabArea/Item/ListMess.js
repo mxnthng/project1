@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import ItemFriend from './ItemFriend';
+import ItemMess from './ItemMess';
 
 
-class ListRequest extends Component {
+class ListMess extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,7 +22,7 @@ class ListRequest extends Component {
         }).then(res => {
             // console.log(res.data);
             this.setState({friends: res.data})
-            // console.log(this.state.friends);
+            console.log(this.state.friends);
         }).catch(err => {
             alert("Có lỗi xảy ra, vui lòng refresh trang");
             console.log(err);
@@ -33,11 +33,11 @@ class ListRequest extends Component {
         return (
             <div>
                 {this.state.friends.map((item, index) => 
-                    <ItemFriend key={index} avatar={"http://"+item.avatar} userName={item.userName} email={item.email} />
+                    <ItemMess key={index} avatar={"http://"+item.avatar} userName={item.userName} email={item.email} />
                 )}
             </div>
         );
     }
 }
 
-export default ListRequest;
+export default ListMess;

@@ -21,9 +21,7 @@ class ItemRequest extends Component {
             <div className="item" onClick={this.callModal}>
                 <div className="item_inside">
                     <div className="avatar_container">
-                        <div className="avatar">
-                            {this.props.avatar}
-                        </div>
+                        <img alt="avatar" className="avatar" src={this.props.avatar} />
                     </div>
                     <div className="item_content_friend">
                         <div className="name_container">
@@ -33,7 +31,7 @@ class ItemRequest extends Component {
                         </div>
                     </div>
                 </div>
-                <ReqUser isOpen={this.state.isOpen} avatar={this.props.avatar} userName={this.props.userName} email={this.props.email}  />
+                <ReqUser isOpen={this.state.isOpen} avatar={this.props.avatar} userName={this.props.userName} email={this.props.email} _id={this.props._id} />
             </div>
         );
     }

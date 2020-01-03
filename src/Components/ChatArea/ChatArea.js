@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ChatAreaMess from './ChatAreaMess';
 
 const styles = {
     root: {
@@ -15,7 +14,7 @@ class ChatArea extends Component {
     render() {
         return (
             <div style={styles.root}>
-                <ChatAreaMess />
+                {this.props.children}
             </div>
         );
     }

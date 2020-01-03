@@ -86,7 +86,7 @@ class ChangeInfo extends Component {
         <div style={styles.paper}>
           <div style={styles.clearfix}></div>
           <Typography component="h1" variant="h4">
-            Đăng ký
+            Cập nhật thông tin
           </Typography>
           <form style={styles.form} noValidate>
             <Grid container spacing={2}>
@@ -126,12 +126,12 @@ class ChangeInfo extends Component {
               color="primary"
               style={styles.submit}
             >
-              Đăng ký
+              Cập nhật
             </Button>
             <Grid container justify="flex-end">
               <Grid item>
                 <NavLink to="/" style={{'fontSize': '16px', 'color': 'blue'}}>
-                  Chuyển đến trang đăng nhập
+                  Đăng xuất
                 </NavLink>
               </Grid>
             </Grid>

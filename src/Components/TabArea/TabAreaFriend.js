@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ItemFriend from './Item/ItemFriend';
 import ListFriend from './Item/ListFriend';
 import ListRequest from './Item/ListRequest';
 

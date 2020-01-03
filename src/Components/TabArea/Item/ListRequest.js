@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ItemRequest from './ItemRequest';
 
-let TOKEN = localStorage.getItem('token');
 
 class ListRequest extends Component {
     constructor(props) {
@@ -13,6 +12,7 @@ class ListRequest extends Component {
     }
 
     componentDidMount() {
+        let TOKEN = localStorage.getItem('token');
         axios({
             method: 'get',
             url: 'http://localhost:3000/friend/receiverRq',
@@ -20,29 +20,21 @@ class ListRequest extends Component {
                 'user-token': TOKEN
             }
         }).then(res => {
-            console.log(res.data);
+            // console.log(res.data);
             this.setState({requests: res.data})
-            console.log(this.state.requests);
+            // console.log(this.state.requests);
         }).catch(err => {
             alert("Có lỗi xảy ra, vui lòng refresh trang");
             console.log(err);
         });
     }
 
-    mappingReq = () => {
-        const results = this.state.requests.map((item, key) => {
-            return(<ItemRequest key={key} avatar={item.avatar} userName={item.userName} email={item.email} />);
-        });
-        return results;
-    }
-
     render() {
         return (
             <div>
-                {this.mappingReq}
-                <div>
-                    <ItemRequest avatar="#" userName="Test req" email="test req" />
-                </div>
+                {this.state.requests.map((item, index) => 
+                    <ItemRequest key={index} avatar={"http://"+item.avatar} userName={item.userName} email={item.email} _id={item._id} />
+                )}
             </div>
         );
     }

@@ -7,7 +7,8 @@ import SignIn from '../Signin/Signin';
 import SignUp from '../Signup/Signup';
 import FriendLayout from '../Layout/FriendLayout';
 import ChatLayout from '../Layout/ChatLayout';
-import ChangeInfo from '../UserInfo/ChangeInfo';
+import ChangeInfo from '../ChangeInfo/ChangeInfo';
+import RedirectPage from '../UserInfo/RedirectPage';
 
 class App extends Component {
    render() {
@@ -16,6 +17,7 @@ class App extends Component {
                <Switch>
                   <Redirect exact from="/" to="/signin" />
                   <Route path="/signin" component={SignIn} exact/>
+                  <Route path="/redirect" component={RedirectPage} exact/>
                   <Route path="/signup" component={SignUp} exact/>
                   <Route path="/friend" component={FriendLayout} exact/>
                   <Route path="/message" component={ChatLayout} exact/>
