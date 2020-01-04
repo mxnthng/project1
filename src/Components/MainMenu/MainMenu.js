@@ -1,6 +1,7 @@
 import React from 'react';
 import TopMenu from './TopMenu/TopMenu';
 import BottomMenu from './BottomMenu/BottomMenu'
+import UserInfo from '../UserInfo/UserInfo';
 
 const styles = {
     root: {
@@ -16,6 +17,7 @@ export default function MainMenu() {
     <div style={styles.root}>
       <TopMenu />
       <BottomMenu />
+      <UserInfo />
     </div>
   );
 }

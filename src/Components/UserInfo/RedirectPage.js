@@ -3,7 +3,6 @@ import UserInfo from './UserInfo';
 import { Redirect } from 'react-router-dom';
 
 class RedirectPage extends Component {
-    
     render() {
         return (
             <did>

@@ -22,7 +22,7 @@ class MessengerMenu extends Component {
     return (
       <Button style={styles.childrenmenu}>
         <Link to="/message">
-          <ChatOutlined style={styles.icon} />
+          <ChatOutlined style={styles.icon} /> 
         </Link>
       </Button>
     );

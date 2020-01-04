@@ -51,33 +51,56 @@ class ChangeInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      signed: false,
+      changed: false,
     }
   }
   
 
   handleSubmit = async (e) => {
     e.preventDefault();
-    axios({
-      method: 'POST',
-      url: 'http://localhost:3000/register',
-      data: {
-        userName: this.username.value,
-        password: this.password.value,
-        email: this.email.value,
+    let TOKEN = localStorage.getItem('token');
+    if (this.username.value !== null) {
+      axios({
+        method: 'patch',
+        url: 'http://localhost:3000/user/changeUserName',
+        headers: {
+          'user-token': TOKEN
+        },
+        data: {
+          'newName': this.username.value
       }
-    }).then(res => {
-        console.log(res);
-        alert("Đăng ký thành công! Hệ thống sẽ chuyển đến trang đăng nhập");
-        this.setState({ signed: true });
-    }).catch(err => {
-        alert(err);
-    });
+      }).then(res => {
+        alert("Thay đổi thông tin thành công!");
+        this.setState({changed: true});
+      }).catch(err => {
+          alert(err);
+          alert("Thay đổi thông tin thành công!");
+          this.setState({changed: true});
+      });
+    };
+    // if (this.password.value !== null) {
+    //   axios({
+    //     method: 'POST',
+    //     url: 'http://localhost:3000/user/changePassWord',
+    //     headers: {
+    //       'user-token': TOKEN
+    //     },
+    //     data: {
+
+    //     }
+    //   }).then(res => {
+    //       // console.log(res);
+    //       alert("Thay đổi thông tin thành công!");
+    //       this.setState({changed: true});
+    //   }).catch(err => {
+    //       alert(err);
+    //   });
+    // };
   }
 
   render() {
-    if (this.state.signed) {
-      return <Redirect to="/" />;
+    if (this.state.changed) {
+      return <Redirect to="/redirect" />;
     }
 
     return (

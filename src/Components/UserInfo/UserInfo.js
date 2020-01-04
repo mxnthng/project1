@@ -4,8 +4,7 @@ import axios from 'axios';
 export default class UserInfo extends Component {
     componentDidMount() {
         const TOKEN = localStorage.getItem('token');
-
-        console.log("token" + TOKEN);
+        // console.log("token" + TOKEN);
         axios({
             method: 'get',
             url: 'http://localhost:3000/user/profile',
@@ -13,12 +12,10 @@ export default class UserInfo extends Component {
                 'user-token': TOKEN
             }
         }).then(res => {
-            // console.log("ok");
             // console.log(res.data);
             // localStorage.removeItem('info');
             localStorage.setItem("info", JSON.stringify(res.data));
         }).catch(err => {
-            // console.log("not ok");
             // console.log(TOKEN);
             console.log(err);
         });
