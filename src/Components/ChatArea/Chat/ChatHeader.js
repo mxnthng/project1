@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import './Chat.css';
 import User from '../../User/User';
 
-let Info = JSON.parse(localStorage.getItem('info'));
-
 class ChatHeader extends Component {
     constructor(props) {
         super(props);
@@ -21,9 +19,9 @@ class ChatHeader extends Component {
         return (
             <div className="chat_header">
                 <div className="user_name" onClick={this.callModal}>
-                    {Info.userName}
+                    Tên bạn chat
                 </div>
-                <User isOpen={this.state.isOpen} userName={Info.userName} avatar={"http://"+Info.avatar} email={Info.email} />
+                <User isOpen={this.state.isOpen} userName="" avatar={"http://"} email="" />
             </div>
         );
     }

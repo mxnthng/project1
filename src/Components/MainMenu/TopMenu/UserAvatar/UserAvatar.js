@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import User from '../../../User/User';
+import axios from 'axios';
 
 // let Info = JSON.parse(sessionStorage.getItem('info'));
 // let Info = JSON.parse(localStorage.getItem('info'));
@@ -34,8 +35,23 @@ class UserAvatar extends Component {
   }
 
   UNSAFE_componentWillMount() {
-    let infomation = JSON.parse(localStorage.getItem('info'));
-    this.setState({ Info: infomation });
+    const TOKEN = localStorage.getItem('token');
+    // console.log("token" + TOKEN);
+    axios({
+      method: 'get',
+      url: 'http://localhost:3000/user/profile',
+      headers: {
+          'user-token': TOKEN
+      }
+    }).then(res => {
+      // console.log(res.data);
+      // localStorage.setItem("info", JSON.stringify(res.data));
+      // let infomation = JSON.parse(localStorage.getItem('info'));
+      this.setState({ Info: res.data });
+    }).catch(err => {
+      // console.log(TOKEN);
+      console.log(err);
+    });
   }
 
   render() {

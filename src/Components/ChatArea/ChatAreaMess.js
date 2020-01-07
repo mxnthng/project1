@@ -13,7 +13,7 @@ class ChatAreaMess extends Component {
     render() {
         return (
             <div>
-                {/* <ChatHeader /> */}
+                <ChatHeader />
                 <div style={styles.chatbody}>
                     <MessageItem isMyMes='true' message="Tin nhắn đi" />
                     <MessageItem isMyMes={false} message="Tin nhắn đến" />

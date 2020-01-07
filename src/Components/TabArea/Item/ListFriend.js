@@ -20,7 +20,7 @@ class ListRequest extends Component {
                 'user-token': TOKEN
             }
         }).then(res => {
-            console.log(res.data);
+            // console.log(res.data);
             this.setState({friends: res.data})
             // console.log(this.state.friends);
         }).catch(err => {

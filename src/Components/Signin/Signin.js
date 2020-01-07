@@ -54,10 +54,10 @@ class SignIn extends Component {
         password: this.refpassword.value,
       }
     }).then(res => {
-        console.log(res);
+        // console.log(res);
         alert("Đăng nhập thành công!");
         let token = res.data;
-        console.log(token);
+        // console.log(token);
         localStorage.setItem("token", token);
         this.setState({ isUser: true });
         // this.props.history.push('/message');
@@ -83,7 +83,7 @@ class SignIn extends Component {
     // }
 
     if (this.state.isUser) {
-      return <Redirect to="/redirect" />;
+      return <Redirect to="/message" />;
     }
 
     localStorage.removeItem('token');

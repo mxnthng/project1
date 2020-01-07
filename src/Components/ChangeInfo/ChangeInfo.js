@@ -100,7 +100,7 @@ class ChangeInfo extends Component {
 
   render() {
     if (this.state.changed) {
-      return <Redirect to="/redirect" />;
+      return <Redirect to="/message" />;
     }
 
     return (
