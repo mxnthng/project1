@@ -151,7 +151,12 @@ class ChangeInfo extends Component {
             >
               Cập nhật
             </Button>
-            <Grid container justify="flex-end">
+            <Grid container>
+              <Grid item xs>
+                <NavLink to="/message" style={{'fontSize': '16px', 'color': 'blue'}}>
+                  Quay lại trang chat
+                </NavLink>
+              </Grid>
               <Grid item>
                 <NavLink to="/" style={{'fontSize': '16px', 'color': 'blue'}}>
                   Đăng xuất
